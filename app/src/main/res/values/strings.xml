@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Simon</string>
+    <string name="currentColourHit">Current Colour:</string>
 </resources>

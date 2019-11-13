@@ -15,7 +15,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="155dp" />
+            android:layout_height="120dp" />
 
         <Button
             android:id="@+id/beginGame"
@@ -27,7 +27,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="298dp" />
+            android:layout_height="289dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,6 +59,16 @@
                 android:layout_weight="1" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/currentColourDebug"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/currentColourHit"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#03A9F4"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
