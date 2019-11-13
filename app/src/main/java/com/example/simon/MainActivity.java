@@ -62,11 +62,13 @@ public class MainActivity extends AppCompatActivity
         // Gets the id of the button that was clicked
         int id = view.getId();
 
+
         if (id == R.id.beginGame) {
 
             startGame();
-        }
 
+
+        }
     }
 
     /*Calls method to generate next pattern entry,
@@ -125,7 +127,7 @@ public class MainActivity extends AppCompatActivity
                             flashSimonColour();
 
                             if (currentIndex == (generatedSimonPattern.size() - 1)) {
-                                Thread.sleep(500);
+                                Thread.sleep(750);
                                 backgroundLayout.setBackgroundResource(R.drawable.simongamebackground);
                             }
                         } catch (InterruptedException e) {
@@ -173,37 +175,42 @@ public class MainActivity extends AppCompatActivity
 
         int index = currentIndex;
         String currentColour = "";
-        ToneGenerator beepSound = new ToneGenerator(AudioManager.STREAM_MUSIC, 175);
+        String displayColour = "";
 
         currentColour = generatedSimonPattern.get(index).toString();
 
+
+        soundEffectPlayer.stop();
 
         switch (currentColour) {
 
             case "red":
                 backgroundLayout.setBackgroundResource(R.drawable.simongamebackground_redhit_v3);
-                soundEffectPlayer.selectTrack(R.raw.hit_c);
+                soundEffectPlayer = MediaPlayer.create(getApplicationContext(), R.raw.hit_c);
 
 
                 break;
 
             case "green":
                 backgroundLayout.setBackgroundResource(R.drawable.simongamebackground_greenhit_v3);
-                soundEffectPlayer.selectTrack(R.raw.hit_g);
+                soundEffectPlayer = MediaPlayer.create(getApplicationContext(), R.raw.hit_g);
                 break;
 
             case "yellow":
                 backgroundLayout.setBackgroundResource(R.drawable.simongamebackground_yellowhit_v3);
-                soundEffectPlayer.selectTrack(R.raw.hit_chigh);
+                soundEffectPlayer = MediaPlayer.create(getApplicationContext(), R.raw.hit_chigh);
                 break;
 
             case "blue":
                 backgroundLayout.setBackgroundResource(R.drawable.simongamebackground_bluehit_v3);
-                soundEffectPlayer.selectTrack(R.raw.hit_e);
+                soundEffectPlayer = MediaPlayer.create(getApplicationContext(), R.raw.hit_e);
                 break;
         }
 
-        currentColourDisplay.setText("Current Colour: " + currentColour + ". ");
+
+        displayColour = "Current Colour: " + currentColour + ". ";
+
+        currentColourDisplay.setText(displayColour);
 
         soundEffectPlayer.start();
 
